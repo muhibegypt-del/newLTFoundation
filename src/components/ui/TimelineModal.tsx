@@ -27,7 +27,7 @@ export function TimelineModal({ year, onClose }: TimelineModalProps) {
             >
                 <div className="sticky top-0 bg-white border-b border-brand-primary-darker/10 px-8 py-6 flex items-center justify-between z-10">
                     <div>
-                        <h2 className="text-3xl font-geist font-bold text-brand-primary-darker">{year.year}</h2>
+                        <h2 className="text-3xl font-serif font-bold text-brand-primary-darker">{year.year}</h2>
                         <p className="text-brand-primary font-medium">{year.title}</p>
                     </div>
                     <button
@@ -62,7 +62,7 @@ export function TimelineModal({ year, onClose }: TimelineModalProps) {
 
                     {year.status === 'current' && (
                         <div className="mt-8 bg-olive-50 rounded-xl p-6 border border-olive-200">
-                            <h3 className="font-geist font-bold text-brand-primary-darker mb-3">Current Status</h3>
+                            <h3 className="font-serif font-bold text-brand-primary-darker mb-3">Current Status</h3>
                             <p className="text-brand-primary-dark/80">
                                 This is our current active phase. Follow our progress and get updates on this initiative through our newsletter.
                             </p>

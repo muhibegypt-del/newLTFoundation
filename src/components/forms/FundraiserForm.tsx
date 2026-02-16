@@ -27,7 +27,7 @@ export function FundraiserForm() {
 
     return (
         <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-gray-100">
-            <h2 className="text-3xl font-bold font-geist text-brand-primary-dark mb-2">Start a Fundraiser</h2>
+            <h2 className="text-3xl font-bold font-serif text-primary mb-2">Start a Fundraiser</h2>
             <p className="text-gray-600 mb-8">Tell us about your campaign idea and we'll help you get started.</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
