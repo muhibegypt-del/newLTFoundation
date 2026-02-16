@@ -45,7 +45,7 @@ export function MobileMenu({ isOpen, onClose, currentHash, navConfig }: MobileMe
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="fixed inset-0 top-0 z-modal bg-brand-primary-dark flex flex-col pt-24 px-6 pb-10 overflow-y-auto lg:hidden"
+                    className="fixed inset-0 top-0 z-modal bg-brand-primary flex flex-col pt-24 px-6 pb-10 overflow-y-auto lg:hidden"
                 >
                     {/* Decorative background element */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-teal-600/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -53,7 +53,7 @@ export function MobileMenu({ isOpen, onClose, currentHash, navConfig }: MobileMe
                     {/* CLOSE BUTTON */}
                     <button
                         onClick={onClose}
-                        className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-50 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                        className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-50 focus:outline-none focus:ring-2 focus:ring-brand-gold"
                         aria-label="Close Menu"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -87,7 +87,7 @@ export function MobileMenu({ isOpen, onClose, currentHash, navConfig }: MobileMe
                                                     key={sub.label}
                                                     to={sub.href}
                                                     onClick={onClose}
-                                                    className="block text-brand-primary-light text-base hover:text-white"
+                                                    className="block text-white/60 text-base hover:text-white transition-colors"
                                                 >
                                                     {sub.label}
                                                 </Link>
@@ -102,7 +102,7 @@ export function MobileMenu({ isOpen, onClose, currentHash, navConfig }: MobileMe
                     <motion.div variants={itemVariants} className="mt-auto relative z-10 space-y-6 pt-12">
                         <Button
                             onClick={onClose}
-                            className="w-full bg-white text-brand-primary-dark text-lg font-bold py-4 rounded-xl shadow-xl active:scale-95 transition-transform flex justify-center items-center gap-2 hover:bg-gray-100 h-auto"
+                            className="w-full bg-brand-gold hover:bg-brand-gold-light text-white text-lg font-semibold py-4 rounded-xl shadow-xl active:scale-95 transition-all flex justify-center items-center gap-2 h-auto"
                         >
                             Donate Now
                         </Button>

@@ -55,21 +55,21 @@ export function NavigationItem({ link, isOpen, onOpen, onLeave, onClose }: Navig
         <Link
           to={link.href}
           onClick={(e) => onLinkClick(e, link.href)}
-          className={`flex items-center gap-1 font-bold text-sm transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded-md px-3 ${isActive || isOpen ? 'text-white' : 'text-slate-100 hover:text-teal-200'}`}
+          className={`flex items-center gap-1 font-medium text-[15px] transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-md px-3 ${isActive || isOpen ? 'text-white' : 'text-white/75 hover:text-white'}`}
         >
           {link.label}
-          <ChevronDown className={`w-4 h-4 text-current transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-3.5 h-3.5 text-current transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
         </Link>
       ) : (
         <Link
           to={link.href}
           onClick={(e) => onLinkClick(e, link.href)}
-          className={`relative py-2 px-3 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 rounded-md font-bold text-sm transition-colors ${isActive ? 'text-white' : 'text-slate-100 hover:text-teal-200'}`}
+          className={`relative py-2 px-3 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-md font-medium text-[15px] transition-colors ${isActive ? 'text-white' : 'text-white/75 hover:text-white'}`}
           aria-current={isActive ? 'page' : undefined}
         >
           {link.label}
           {isActive && (
-            <span className="absolute bottom-1 left-3 right-3 h-[2px] rounded-full bg-teal-400" />
+            <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-brand-gold" />
           )}
         </Link>
       )}

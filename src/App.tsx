@@ -31,7 +31,7 @@ const RamadanAppeal = lazy(() => import('./pages/RamadanAppeal').then(m => ({ de
 function NoiseOverlay() {
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-50 opacity-5 hidden sm:block"
+      className="fixed inset-0 pointer-events-none z-50 opacity-[0.02] hidden sm:block"
       style={{
         backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGklEQVQYV2M8c+YMAxYwiqIoiqIoiqIoOikAAEX8A/nGmjQkAAAAAElFTkSuQmCC")`,
         backgroundRepeat: 'repeat',
@@ -55,11 +55,11 @@ function App() {
         <Router>
           <NavigationLifecycle />
           <SmoothScrolling>
-            <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
+            <div className="min-h-screen bg-secondary font-sans overflow-x-hidden">
               <NoiseOverlay />
               <Navigation />
 
-              <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-teal-600 font-medium">Loading…</div></div>}>
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-primary font-medium">Loading…</div></div>}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/about" element={<AboutPage />} />
