@@ -11,11 +11,12 @@ const PARTNERS = [
 
 export function PartnerOrganizations() {
     return (
-        <section className="py-24 bg-white">
+        <section className="section-md bg-white">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-serif font-medium text-gray-900 mb-4">Our Partners</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                <div className="text-center mb-16 lg:mb-20">
+                    <span className="eyebrow-gold mb-4 block">Partnerships</span>
+                    <h2 className="text-3xl lg:text-4xl font-serif font-medium text-gray-900 mb-4">Our Partners</h2>
+                    <p className="text-stone-500 max-w-2xl mx-auto leading-relaxed">
                         Working together with leading organizations to deliver impactful solutions.
                     </p>
                 </div>
@@ -28,13 +29,13 @@ export function PartnerOrganizations() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="flex flex-col items-center text-center p-8 bg-gray-50 rounded-xl hover:bg-teal-50 transition-colors"
+                            className="flex flex-col items-center text-center p-8 bg-secondary rounded-xl hover:ring-brand-gold/20 hover:ring-2 transition-all ring-1 ring-gray-900/5"
                         >
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 text-teal-800 font-bold text-xl border border-gray-100">
+                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-5 text-primary font-bold text-lg ring-1 ring-gray-900/5">
                                 {partner.name}
                             </div>
-                            <h3 className="font-bold text-gray-900 mb-2">{partner.fullName}</h3>
-                            <p className="text-sm text-gray-500">{partner.description}</p>
+                            <h3 className="font-semibold text-gray-900 mb-2 text-[15px]">{partner.fullName}</h3>
+                            <p className="text-sm text-stone-400">{partner.description}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -14,19 +14,20 @@ const TRUSTED_BY = [
 
 export function TrustStrip() {
     return (
-        <section className="py-10 bg-white border-b border-gray-100 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-6">
-                <p className="text-center text-xs font-bold uppercase tracking-widest text-gray-400">
+        <section className="py-14 lg:py-16 bg-white border-b border-gray-100 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8">
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-stone-400">
                     Trusted by communities and organizations across West Africa
                 </p>
             </div>
 
             <Marquee pauseOnHover className="[--duration:40s]">
                 {TRUSTED_BY.map((org, i) => (
-                    <div key={i} className="mx-8 flex items-center justify-center">
-                        <span className="text-xl md:text-2xl font-serif text-gray-400 hover:text-teal-800 transition-colors whitespace-nowrap">
+                    <div key={i} className="mx-6 flex items-center gap-6">
+                        <span className="text-xl md:text-2xl font-serif text-stone-400 hover:text-primary transition-colors whitespace-nowrap">
                             {org}
                         </span>
+                        <span className="w-1 h-1 rounded-full bg-brand-gold/40 flex-shrink-0" aria-hidden="true" />
                     </div>
                 ))}
             </Marquee>
