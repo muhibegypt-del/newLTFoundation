@@ -2,6 +2,29 @@
 // DESIGN TOKENS - Single Source of Truth
 // ============================================
 
+// COLOR PALETTE
+export const COLORS = {
+    primary: '#14532d',       // Deep teal — foundation identity
+    primaryDark: '#134e4a',   // Supporting dark teal
+    gold: '#C8973E',          // Warm gold accent
+    goldLight: '#D4AD5C',     // Gold hover state
+    goldDark: '#A87B2F',      // Gold active state
+    cream: '#fef1e4',         // Warm neutral background
+    white: '#ffffff',
+    text: {
+        primary: '#1c1917',   // Near-black warm
+        secondary: '#57534e', // Stone-600
+        muted: '#78716c',     // Stone-500
+        subtle: '#a8a29e',    // Stone-400
+    },
+} as const;
+
+// TYPOGRAPHY
+export const FONT_FAMILY = {
+    serif: "'Playfair Display', Georgia, 'Times New Roman', serif",
+    sans: "'Lato', system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+} as const;
+
 // SPACING (4px base unit)
 export const SPACING = {
     0: '0px',
@@ -15,6 +38,14 @@ export const SPACING = {
     10: '40px',
     12: '48px',
     16: '64px',
+} as const;
+
+// SECTION SPACING — professional-grade breathing room
+export const SECTION_SPACING = {
+    sm: 'py-20 lg:py-28',       // Compact sections (trust strips, dividers)
+    md: 'py-24 lg:py-32',       // Standard sections
+    lg: 'py-28 lg:py-40',       // Major sections (hero, programs, CTA)
+    xl: 'py-32 lg:py-48',       // Statement sections (memorial, about hero)
 } as const;
 
 // Z-INDEX SCALE (layered architecture)
@@ -61,8 +92,8 @@ export const BUTTON_SIZES = {
 } as const;
 
 export const HEADING_STYLES = {
-    1: 'text-4xl md:text-5xl lg:text-6xl font-bold',
-    2: 'text-2xl md:text-3xl lg:text-4xl font-semibold',
-    3: 'text-xl md:text-2xl font-semibold',
-    4: 'text-lg md:text-xl font-medium',
+    1: 'text-4xl md:text-5xl lg:text-6xl font-serif font-semibold',
+    2: 'text-2xl md:text-3xl lg:text-4xl font-serif font-medium',
+    3: 'text-xl md:text-2xl font-serif font-medium',
+    4: 'text-lg md:text-xl font-serif font-medium',
 } as const;

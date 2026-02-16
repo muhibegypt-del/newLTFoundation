@@ -56,8 +56,8 @@ const themeColorMap: Record<TypographyTheme, Record<TypographyColor, string>> = 
     muted: 'text-gray-600',
     subtle: 'text-gray-400',
     inverse: 'text-white',
-    brand: 'text-brand-primary',
-    accent: 'text-brand-accent',
+    brand: 'text-primary',
+    accent: 'text-accent',
     error: 'text-red-600',
   },
   rose: {

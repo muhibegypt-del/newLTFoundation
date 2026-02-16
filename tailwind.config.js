@@ -27,7 +27,7 @@ export default {
   				foreground: '#78716c' // Stone-500
   			},
   			accent: {
-  				DEFAULT: '#0ea5e9', // Sky-500 (placeholder, will be overridden by specific programs)
+  				DEFAULT: '#C8973E', // Warm gold — primary accent
   				foreground: '#ffffff'
   			},
   			popover: {
@@ -38,17 +38,14 @@ export default {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-            // Branding Colors
+            // Branding Colors — 3 core + supporting tones
   			brand: {
-  				primary: '#14532d', // Teal-900
-                secondary: '#134e4a', // Teal-800
-                cream: '#fef1e4',
-                rose: '#e11d48',
-                sky: '#0ea5e9',
-                amber: '#d97706',
-                emerald: '#059669',
-                purple: '#7c3aed',
-                teal: '#0d9488',
+  				primary: '#14532d',   // Deep teal — foundation identity
+                secondary: '#134e4a', // Teal-800 — supporting dark
+                cream: '#fef1e4',     // Warm neutral background
+                gold: '#C8973E',      // Warm gold accent — generosity, light
+                'gold-light': '#D4AD5C', // Gold hover/highlight state
+                'gold-dark': '#A87B2F',  // Gold pressed/active state
   			},
             // Legacy/Utility needed for compatibility or shadcn
             stone: {
@@ -73,19 +70,11 @@ export default {
   				'sans-serif'
   			],
   			serif: [
-  				'Lato',
-  				'system-ui',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
-  				'sans-serif'
+  				'Playfair Display',
+  				'Georgia',
+  				'Times New Roman',
+  				'serif'
   			],
-  			geist: [
-  				'Geist',
-  				'system-ui',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
-  				'sans-serif'
-  			]
   		},
   		fontSize: {
   			xs: [
@@ -235,68 +224,28 @@ export default {
   			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		keyframes: {
   			pulse: {
-  				'0%, 100%': {
-  					opacity: '1'
-  				},
-  				'50%': {
-  					opacity: '.5'
-  				}
+  				'0%, 100%': { opacity: '1' },
+  				'50%': { opacity: '.5' }
   			},
   			fadeIn: {
-  				'0%': {
-  					opacity: '0'
-  				},
-  				'100%': {
-  					opacity: '1'
-  				}
+  				'0%': { opacity: '0' },
+  				'100%': { opacity: '1' }
   			},
   			slideUp: {
-  				'0%': {
-  					opacity: '0',
-  					transform: 'translateY(20px)'
-  				},
-  				'100%': {
-  					opacity: '1',
-  					transform: 'translateY(0)'
-  				}
+  				'0%': { opacity: '0', transform: 'translateY(20px)' },
+  				'100%': { opacity: '1', transform: 'translateY(0)' }
   			},
   			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
+  				from: { height: '0' },
+  				to: { height: 'var(--radix-accordion-content-height)' }
   			},
   			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
+  				from: { height: 'var(--radix-accordion-content-height)' },
+  				to: { height: '0' }
   			},
-  			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
-  			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
   		}
   	},
   	zIndex: {

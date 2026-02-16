@@ -56,7 +56,7 @@ export function TimelineItem({ item, index, onClick }: TimelineItemProps) {
 
                 {/* Header Row */}
                 < div className="flex flex-wrap items-baseline gap-3 mb-2" >
-                    <span className={`font-geist font-bold text-xl tracking-tight transition-colors ${isInView ? 'text-brand-primary-darker group-hover:text-olive-600' : 'text-gray-400 group-hover:text-brand-primary'}`}>
+                    <span className={`font-serif font-bold text-xl tracking-tight transition-colors ${isInView ? 'text-brand-primary-darker group-hover:text-olive-600' : 'text-gray-400 group-hover:text-brand-primary'}`}>
                         {item.year}
                     </span>
 
