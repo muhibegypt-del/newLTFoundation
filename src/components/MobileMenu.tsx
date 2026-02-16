@@ -1,0 +1,115 @@
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
+import { Lock } from 'lucide-react';
+import type { NavigationLink } from '../types';
+import { Button } from './ui/button';
+
+import { useFocusTrap } from '../hooks/useFocusTrap';
+
+interface MobileMenuProps {
+    isOpen: boolean;
+    onClose: () => void;
+    currentHash: string;
+    navConfig: NavigationLink[];
+}
+
+const mobileMenuVariants: Variants = {
+    hidden: { opacity: 0, clipPath: "circle(0% at 100% 0)" },
+    visible: {
+        opacity: 1,
+        clipPath: "circle(150% at 100% 0)",
+        transition: { type: "spring", stiffness: 40, damping: 20, staggerChildren: 0.1 }
+    },
+    exit: {
+        opacity: 0,
+        clipPath: "circle(0% at 100% 0)",
+        transition: { type: "spring", stiffness: 40, damping: 20, staggerChildren: 0.05, staggerDirection: -1 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+};
+
+export function MobileMenu({ isOpen, onClose, currentHash, navConfig }: MobileMenuProps) {
+    const containerRef = useFocusTrap(isOpen);
+
+    return createPortal(
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    ref={containerRef}
+                    variants={mobileMenuVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="fixed inset-0 top-0 z-modal bg-brand-primary-dark flex flex-col pt-24 px-6 pb-10 overflow-y-auto lg:hidden"
+                >
+                    {/* Decorative background element */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-teal-600/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+                    {/* CLOSE BUTTON */}
+                    <button
+                        onClick={onClose}
+                        className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-50 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                        aria-label="Close Menu"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <nav className="flex flex-col space-y-2 relative z-10">
+                        {navConfig.map((link) => {
+                            const isActive = currentHash === link.href;
+                            const hasDropdown = link.dropdownItems && link.dropdownItems.length > 0;
+
+                            return (
+                                <div key={link.label} className="border-b border-white/10 last:border-0">
+                                    <motion.a
+                                        href={link.href}
+                                        variants={itemVariants}
+                                        onClick={onClose}
+                                        className={`group flex items-center justify-between py-4 ${isActive ? 'text-white' : 'text-white'}`}
+                                    >
+                                        <span className={`text-xl font-medium tracking-tight ${isActive ? 'font-bold' : ''}`}>
+                                            {link.label}
+                                        </span>
+                                    </motion.a>
+
+                                    {hasDropdown && (
+                                        <div className="pl-4 pb-4 space-y-3">
+                                            {link.dropdownItems!.map(sub => (
+                                                <Link
+                                                    key={sub.label}
+                                                    to={sub.href}
+                                                    onClick={onClose}
+                                                    className="block text-brand-primary-light text-base hover:text-white"
+                                                >
+                                                    {sub.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </nav>
+
+                    <motion.div variants={itemVariants} className="mt-auto relative z-10 space-y-6 pt-12">
+                        <Button
+                            onClick={onClose}
+                            className="w-full bg-white text-brand-primary-dark text-lg font-bold py-4 rounded-xl shadow-xl active:scale-95 transition-transform flex justify-center items-center gap-2 hover:bg-gray-100 h-auto"
+                        >
+                            Donate Now
+                        </Button>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>,
+        document.body
+    );
+}
